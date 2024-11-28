@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "browser-sync start --server --files '**/*'"
+    "start-circle": "browser-sync start --server --directory --no-ui --files 'circle-slices.html/*'",
+    "start": "browser-sync start --server --directory --no-ui --files '**/*'"
   },
   "keywords": [
     "web",
