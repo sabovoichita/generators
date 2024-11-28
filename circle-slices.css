@@ -6,6 +6,7 @@ body {
   margin: 0;
   background-color: gray;
 }
+
 .circle {
   width: 300px;
   height: 300px;
@@ -18,6 +19,7 @@ body {
   overflow: hidden;
   background-color: white;
 }
+
 /*.slice-line:before {*/
 .slice-line {
   /*content: "";*/
@@ -26,10 +28,12 @@ body {
   top: calc(50% - 1px);
   left: 0;
   right: 0;
-  border-left: var(--line-width) solid var(--color);
+  /*border-left: var(--line-width) solid var(--color);*/
+  border-right: var(--line-width) solid var(--color);
   transform: rotate(var(--angle));
   box-sizing: border-box;
 }
+
 .slice-text {
   position: absolute;
   height: 24px;
@@ -41,9 +45,17 @@ body {
   transform: rotate(var(--angle));
   box-sizing: border-box;
   padding-left: var(--padding-start);
+  display: flex;
+  align-items: center;
+  /* TODO try to make this element 0 px, and let inner text get outside
+       to be able to hover over the text */
 }
 .phrase-inner {
   z-index: 1;
+  width: 100%;
+  padding: 0 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .phrase-inner:hover {
   color: blue;
@@ -58,4 +70,14 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   border: 2px solid #33333399;
+}
+
+#groups > .slice-text {
+  font-weight: bold;
+  text-align: center;
+}
+
+#slices .phrase-inner {
+  text-wrap: nowrap;
+  padding: 0 10px 0 20px;
 }
