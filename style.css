@@ -4,7 +4,6 @@ body {
   padding: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
   background: #f5f5f5;
 }
 
@@ -106,7 +105,7 @@ body:before {
 }
 
 .landscape #names {
-  min-height: 30vh;
+  min-height: 20vh;
 }
 
 #print-btn {
@@ -144,5 +143,15 @@ h1 {
   }
   .portrait #names {
     min-height: 30vh;
+  }
+
+  #badges {
+    margin: 5px;
+  }
+  .portrait #badges {
+    grid-template-columns: auto auto;
+  }
+  .landscape #badges {
+    grid-template-columns: auto auto;
   }
 }
