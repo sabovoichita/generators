@@ -19,6 +19,9 @@ function initEvents() {
 }
 function displayNames(names) {
   names = [...names];
+  Array(9 - (names.length % 9))
+    .fill(0)
+    .forEach(() => names.push(" "));
   const badges = names.map((name) => {
     const parts = name.split(/\s+/);
     console.log("printing");
