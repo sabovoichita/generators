@@ -4,7 +4,6 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-color: gray;
 }
 
 .circle {
@@ -73,6 +72,12 @@ body {
   border: 2px solid #33333399;
 }
 
+#groups {
+  background: #d2f7d5;
+}
+#slices {
+  background: #ddf0df;
+}
 #groups > .slice-text {
   font-weight: bold;
   text-align: center;
