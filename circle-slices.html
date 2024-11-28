@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.2" />
     <title>Circle Slices</title>
     <link rel="stylesheet" href="circle-slices.css" />
   </head>
@@ -13,7 +13,27 @@
       <div id="settings">
         <div class="form-field">
           <label for="rotate">Rotate</label>
-          <input type="range" value="0" required min="0" max="360" step="1" id="rotate" name="rotate" />
+          <input
+            style="width: 360px"
+            type="range"
+            value="0"
+            required
+            min="0"
+            max="360"
+            step="1"
+            id="rotate"
+            name="rotate"
+          />
+          <input
+            style="width: 50px; padding: 3px 5px"
+            type="number"
+            name="rotateDegrees"
+            id="rotateDegrees"
+            required
+            min="0"
+            max="360"
+            value="0"
+          />
         </div>
       </div>
     </section>
