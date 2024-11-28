@@ -4,65 +4,56 @@
 let phrases = `
 #1 Darul de a rezolva probleme
 Discernământ spiritual interior
-Creativitate si inventivitate
+Creativitate și inventivitate
 Luarea deciziilor
-
-#2 Daruri de pastor-invatator
+#2 Daruri de pastor-învățător
 Consiliind
-Pregatind si conducand inchinarea
-Facand ucenici
-Predicand
+Pregătind și conducând închinarea
+Făcând ucenici
+Predicând
 Zidind unitatea trupului
-
-#3 Orientat spre crestere
+#3 Orientat spre creștere
 Capabil pentru viziune
-Adaptaptindu-se la crestere
-Deschis la crestere
-Motivatii personale
-
-#4 Penetrare in societate
+Adaptându-se la creștere
+Deschis la creștere
+Motivații personale
+#4 Penetrare în societate
 Stil flexibil
-Activitate evang. in/afara Bisericii
-Prezenta in Biserica
-Raspunde nevoilor Comunitatii
-
-#5 Abilitatile conducerii
-Autoritate si Influenta
+Activitate evanghelică în/în afara Bisericii
+Prezență în Biserică
+Răspunde nevoilor Comunității
+#5 Abilitățile conducerii
+Autoritate și influență
 Dezvoltarea conducerii Bisericii
 Motivarea Membrilor
 Utilizarea darurilor
-Formand o lucrare care se mentine
-
-#6 Abilitati administrative
-Primind/oferind informatii si raport
+Formând o lucrare care se menține
+#6 Abilități administrative
+Primind/oferind informații și raport
 Administrarea timpului
 Planificarea obiectivelor. Adaptarea / corectarea lor
 Organizarea structurilor administrative
-
-#7 Cunostinte teologice / tehnice
-Abilitati financiare si contabile
-Reguli si legi guvernamentale
-Pregatirea lucrarii si confirmarea ei
-Practica si politica denominationala
-Principiile Cesterii Bsericilor
-
-#8 Abilitati interpersonale si de comunicare
+#7 Cunoștințe teologice / tehnice
+Abilități financiare și contabile
+Reguli și legi guvernamentale
+Pregătirea lucrării și confirmarea ei
+Practica și politica denominațională
+Principiile Creșterii Bisericilor
+#8 Abilități interpersonale și de comunicare
 Ascultarea
-Interactiuni
-Mentinerea relatiilor
-Probleme de constructii
+Interacțiuni
+Menținerea relațiilor
+Probleme de construcții
 Rezolvarea conflictelor
-
-#9 Stabilitate personala
-Facand fata stresului
-Auto-incredere si auto-apreciere
-Maturitate emotionala
-Flexibilitate    
-
-#10 Stabilitate in familie
-Rol si responsabilitate de soti
-Rol si responsabilitate de sot
-Cooperare in familie
+#9 Stabilitate personală
+Făcând față stresului
+Auto-încredere și auto-apreciere
+Maturitate emoțională
+Flexibilitate
+#10 Stabilitate în familie
+Rol și responsabilitate de soți
+Rol și responsabilitate de soț
+Cooperare în familie
 `;
 
 phrases = phrases
