@@ -1,8 +1,10 @@
 function initEvents() {
-  const inputValue = document.querySelector("#names");
-  inputValue.addEventListener("input", (e) => {
-    console.log("Input:", e.data);
+  document.querySelector("#names").addEventListener("input", function () {
+    const names = this.value
+      .split("\n")
+      .map((name) => name.trim())
+      .filter((name) => name);
+    console.log("names: ", names);
   });
 }
-
 initEvents();
