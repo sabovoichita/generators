@@ -13,6 +13,7 @@ body {
 }
 .landscape {
   flex-direction: column;
+  align-items: center;
 }
 
 body:before {
