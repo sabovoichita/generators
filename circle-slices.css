@@ -1,11 +1,16 @@
+html {
+  height: 100%;
+}
 body {
+  min-height: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  flex-direction: column;
   margin: 0;
 }
-
+#root {
+  flex: 1;
+  margin: 20px auto;
+}
 .circle {
   width: 300px;
   height: 300px;
@@ -35,9 +40,9 @@ body {
 
 .slice-text {
   position: absolute;
-  height: 24px;
-  line-height: 24px;
-  top: calc(50% - 12px);
+  height: 0;
+  line-height: 0;
+  top: calc(50%);
   left: 0;
   right: 0;
   border-left: var(--line-width) solid transparent;
@@ -46,19 +51,20 @@ body {
   padding-left: var(--padding-start);
   display: flex;
   align-items: center;
-  /* TODO try to make this element 0 px, and let inner text get outside
-       to be able to hover over the text */
 }
 .phrase-inner {
+  font-size: 16px;
+  line-height: 24px;
   z-index: 1;
   width: 100%;
   padding: 0 10px;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 16px;
+  cursor: pointer;
+  transition: 0.5s;
 }
 .phrase-inner:hover {
-  color: blue;
+  color: #0096d6;
 }
 .inner-circle {
   position: absolute;
@@ -81,9 +87,18 @@ body {
 #groups > .slice-text {
   font-weight: bold;
   text-align: center;
+  color: #057988;
+}
+#groups > .slice-text > .phrase-inner:hover {
+  font-size: 18px;
 }
 
 #slices .phrase-inner {
   text-wrap: nowrap;
   padding: 0 5px 0 20px;
+}
+#slices .phrase-inner:hover {
+  color: #0096d6;
+  padding-left: 35px;
+  font-weight: bold;
 }

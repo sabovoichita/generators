@@ -146,3 +146,8 @@ groups.innerHTML += `<div id="slices" class="circle"></div>`;
 const slices = document.querySelector("#slices");
 createSlices(slices, phrases, 850, 250);
 slices.innerHTML += `<div class="inner-circle"></div>`;
+
+// document.querySelector("#slices .inner-circle").innerHTML = `<div id="dot" class="inner-circle"></div>`;
+// const dot = document.querySelector("#dot");
+// dot.style.width = "10px";
+// dot.style.height = "10px";
