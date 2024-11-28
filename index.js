@@ -8,7 +8,11 @@ function setOrientation(portraitValue) {
 }
 
 function getStoredNames() {
-  return JSON.parse(localStorage.getItem("badgeNames")) || [];
+  let items = JSON.parse(localStorage.getItem("badgeNames")) || [];
+  if (items.length === 0) {
+    items = ["Enter Names"];
+  }
+  return items;
 }
 
 function storeNames(names) {
