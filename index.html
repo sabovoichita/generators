@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generators</title>
+  </head>
+  <link rel="stylesheet" href="style.css" />
+  <body>
+    <div id="config" class="no-print">
+      <h1>
+        Print Badges
+        <button id="print-btn" onclick="window.print()" title="Print / Preview">
+          🖨️
+        </button>
+      </h1>
+      <div>
+        <label for="names">Enter names (each name in new line)</label>
+      </div>
+      <textarea
+        id="names"
+        placeholder="First Name
+  Your Name"
+      ></textarea>
+    </div>
+    <div id="badges"></div>
+    <script src="index.js"></script>
+  </body>
+</html>
