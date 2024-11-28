@@ -1,7 +1,7 @@
 body {
   -webkit-print-color-adjust: exact;
-  margin: 0 !important;
-  padding: 0 !important;
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   background: #f5f5f5;
@@ -13,21 +13,43 @@ body:before {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
-@page {
-  size: A4 portrait;
-  margin: 20px;
+
+.A4.portrait {
+  @page {
+    size: A4 portrait;
+    margin: 20px;
+  }
 }
+.A4.landscape {
+  @page {
+    size: A4 landscape;
+    margin: 20px;
+  }
+}
+
 #badges {
   margin: 10px;
   display: grid;
+  align-content: center;
+  /*gap: 1px;*/
+}
+
+.portrait #badges {
   grid-template-columns: auto auto auto;
 }
+.landscape #badges {
+  grid-template-columns: auto auto auto auto auto;
+}
+
 .badge {
-  margin: 1px;
+  /*margin: 1px;*/
   padding: 0 0 40px 0;
   border: 1px dashed #bbbbbb;
-  width: 5.9cm;
-  height: 8.7cm;
+  /*border-top: 1px dashed #bbbbbb;*/
+  /*border-left: 1px dashed #bbbbbb;*/
+  /*outline: 1px dashed #bbbbbb; !* Use outline instead of border *!*/
+  width: 5.6cm;
+  height: 8.2cm;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,9 +61,9 @@ body:before {
   /* https://www.base64-image.de/ */
   background-color: #ffffff;
   background-image: url("images/Voichita.png");
+  background-size: 120px;
   background-repeat: no-repeat;
-  background-position: 70% 100%;
-  background-size: 100px 100px;
+  background-position: 50% 90%;
   text-transform: uppercase;
 }
 .badge div {
@@ -50,6 +72,7 @@ body:before {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 @media print {
   body {
     background-color: #ffffff;
@@ -57,31 +80,38 @@ body:before {
   .no-print {
     display: none;
   }
+  #badges {
+    margin: 0;
+  }
 }
+
 #config {
   width: 300px;
 }
 #names {
   width: 100%;
   border-radius: 5px;
-  min-height: 250px;
   min-height: 80vh;
   padding: 10px 10px;
 }
+
 #print-btn {
   padding: 4px 10px;
 }
+
 h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.badge:nth-child(9),
-.badge:nth-child(18),
-.badge:nth-child(27),
-.badge:nth-child(36),
-.badge:nth-child(45),
-.badge:nth-child(54),
-.badge:nth-child(63) {
+
+.portrait .badge:nth-child(9n) {
   page-break-after: always;
+}
+.landscape .badge:nth-child(10n) {
+  page-break-after: always;
+}
+
+.flip {
+  transform: rotate(180deg);
 }

@@ -10,10 +10,14 @@
     <div id="config" class="no-print">
       <h1>
         Print Badges
-        <button id="print-btn" onclick="window.print()" title="Print / Preview">
-          🖨️
-        </button>
+        <button id="print-btn" onclick="window.print()" title="Print / Preview">🖨️</button>
       </h1>
+      <div>
+        <label for="portrait">Portrait</label>
+        <input type="radio" name="orientation" id="portrait" checked onchange="setOrientation(true)" />
+        <label for="landscape">Landscape</label>
+        <input type="radio" name="orientation" id="landscape" onchange="setOrientation(false)" />
+      </div>
       <div>
         <label for="names">Enter names (each name in new line)</label>
       </div>
