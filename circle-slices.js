@@ -140,13 +140,9 @@ function createSlices(circle, phrases, width = 800, innerWidth = 250) {
 }
 
 const groups = document.querySelector("#groups");
-createSlices(groups, titles, 1000, 800);
+createSlices(groups, titles, 1100, 850);
 groups.innerHTML += `<div id="slices" class="circle"></div>`;
 
 const slices = document.querySelector("#slices");
-createSlices(slices, phrases, 800, 250);
+createSlices(slices, phrases, 850, 250);
 slices.innerHTML += `<div class="inner-circle"></div>`;
-// TMP
-// slices.style.opacity = 0.5;
-
-console.debug(titles);
