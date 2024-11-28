@@ -92,6 +92,13 @@ body:before {
   #badges {
     margin: 0;
   }
+
+  .portrait #badges {
+    grid-template-columns: auto auto auto !important;
+  }
+  .landscape #badges {
+    grid-template-columns: auto auto auto auto auto !important;
+  }
 }
 
 #config {
