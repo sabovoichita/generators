@@ -1,7 +1,7 @@
 // TODO check this examples:
 //   https://stackoverflow.com/questions/10028182/how-to-make-a-pie-chart-in-css
 
-let phrases = `
+let text = `
 #1 Darul de a rezolva probleme
 Discernământ spiritual interior
 Creativitate și inventivitate
@@ -65,30 +65,39 @@ Rol și responsabilitate de soț
 Cooperare în familie
 `;
 
-phrases = phrases
-  .split("\n")
-  .map(line => line.trim())
-  .filter(line => line.length > 0);
+let { phrases, titles } = preparePhrases(text);
 
-//const titles = phrases.filter(line => line.startsWith("#"));
-// group phrases by titles and remove titles from phrases (return title + phrases.length after them)
-const titles = phrases.reduce((acc, line) => {
-  if (line.startsWith("#")) {
-    acc.push({
-      text: line.substring(1).trim(),
-      children: []
-    });
-  } else {
-    acc[acc.length - 1].children.push(line);
-  }
-  return acc;
-}, []);
+function preparePhrases(text) {
+  let phrases = text
+    .split("\n")
+    .map(line => line.trim())
+    .filter(line => line.length > 0);
 
-phrases = phrases
-  .filter(line => !line.startsWith("#"))
-  .map(line => ({
-    text: line
-  }));
+  //const titles = phrases.filter(line => line.startsWith("#"));
+  // group phrases by titles and remove titles from phrases (return title + phrases.length after them)
+  const titles = phrases.reduce((acc, line) => {
+    if (line.startsWith("#")) {
+      acc.push({
+        text: line.substring(1).trim(),
+        children: []
+      });
+    } else {
+      acc[acc.length - 1].children.push(line);
+    }
+    return acc;
+  }, []);
+
+  phrases = phrases
+    .filter(line => !line.startsWith("#"))
+    .map(line => ({
+      text: line
+    }));
+
+  return {
+    titles,
+    phrases
+  };
+}
 
 function createObjects(phrases, color) {
   const length = phrases.reduce((acc, item) => acc + (item.children || [1]).length, 0);
@@ -136,18 +145,38 @@ function rotateMainCircle(degrees) {
   $("#center").style.transform = `rotate(${degrees * -1}deg)`;
 }
 
-function initEvents() {
-  $("#rotate").addEventListener("input", event => {
-    const value = event.target.value;
-    rotateMainCircle(-value);
-    $("#rotateDegrees").value = value;
+function syncValues(selector1, selector2) {
+  const element1 = $(selector1);
+  const element2 = $(selector2);
+  element1.value = element2.value;
+  element1.addEventListener("input", event => {
+    element2.value = event.target.value;
   });
+  element2.addEventListener("input", event => {
+    element1.value = event.target.value;
+    const inputEvent = new Event("input", { bubbles: true });
+    element1.dispatchEvent(inputEvent);
+  });
+}
 
-  $("#rotateDegrees").addEventListener("input", event => {
-    const value = event.target.value;
-    rotateMainCircle(-value);
-    $("#rotate").value = value;
-  });
+function initEvents() {
+  syncValues("#rotate", "#rotateDegrees");
+  syncValues("#zoom", "#zoomPercent");
+
+  $("#rotate").addEventListener(
+    "input",
+    debounce(event => {
+      const value = event.target.value;
+      rotateMainCircle(-value);
+    }, 300)
+  );
+  $("#zoom").addEventListener(
+    "input",
+    debounce(event => {
+      const value = event.target.value;
+      $("#groups").style.setProperty("--zoom", `${value}%`);
+    }, 400)
+  );
 
   $("#groups").addEventListener("click", event => {
     const target = event.target;
@@ -160,10 +189,13 @@ function initEvents() {
     }
   });
 
-  [("groupSize", "slicesSize", "centerSize")].forEach(id => {
-    $(`#${id}`).addEventListener("change", () => {
-      start();
-    });
+  ["groupSize", "slicesSize", "centerSize"].forEach(id => {
+    $(`#${id}`).addEventListener(
+      "change",
+      debounce(() => {
+        start();
+      }, 500)
+    );
   });
 }
 

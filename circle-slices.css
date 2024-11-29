@@ -15,7 +15,12 @@ body {
 #settings {
   padding: 20px;
 }
-#rotate {
+details summary {
+  font-weight: bold;
+  cursor: pointer;
+}
+#rotate,
+#zoom {
   width: 360px;
 }
 
@@ -88,6 +93,8 @@ body {
 }
 
 #groups {
+  --zoom: 100%;
+  zoom: var(--zoom);
   background: #d2f7d5;
   border-width: 4px;
 }
@@ -187,7 +194,8 @@ body {
   .form-field label {
     min-width: 10em;
   }
-  #rotate {
+  #rotate,
+  #zoom {
     width: 270px;
   }
 }
@@ -198,7 +206,8 @@ body {
   .form-field label {
     min-width: 6em;
   }
-  #rotate {
+  #rotate,
+  #zoom {
     width: 180px;
   }
 }

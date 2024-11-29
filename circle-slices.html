@@ -11,26 +11,44 @@
       <div id="groups" class="circle"></div>
 
       <div id="settings">
-        <div class="form-field">
-          <label for="rotate">Rotate</label>
-          <input type="range" value="0" required min="0" max="360" step="1" id="rotate" name="rotate" />
-          <input
-            style="width: 50px; padding: 3px 5px"
-            type="number"
-            name="rotateDegrees"
-            id="rotateDegrees"
-            required
-            min="0"
-            max="360"
-            value="0"
-          />
-          <label for="rotateDegrees" style="min-width: auto">
-            <span>&deg;</span>
-          </label>
-        </div>
-
         <details>
           <summary>Settings</summary>
+
+          <div class="form-field">
+            <label for="rotate">Rotate</label>
+            <input type="range" value="0" required min="0" max="360" step="1" id="rotate" name="rotate" />
+            <input
+              style="width: 50px; padding: 3px 5px"
+              type="number"
+              name="rotateDegrees"
+              id="rotateDegrees"
+              required
+              min="0"
+              max="360"
+              value="0"
+            />
+            <label for="rotateDegrees" style="min-width: auto">
+              <span>&deg;</span>
+            </label>
+          </div>
+
+          <div class="form-field">
+            <label for="zoom">Zoom</label>
+            <input type="range" value="100" required min="10" max="100" step="1" id="zoom" name="zoom" />
+            <input
+              style="width: 50px; padding: 3px 5px"
+              type="number"
+              name="zoomPercent"
+              id="zoomPercent"
+              required
+              min="10"
+              max="100"
+              value="100"
+            />
+            <label for="zoomPercent" style="min-width: auto">
+              <span>%</span>
+            </label>
+          </div>
 
           <div class="form-field">
             <label for="groupSize">Group size</label>

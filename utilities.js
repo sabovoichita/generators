@@ -6,6 +6,24 @@ function $$(selector, parent) {
   return [...(parent || document).querySelectorAll(selector)];
 }
 
+/**
+ *
+ * @param fn
+ * @param delay
+ * @returns {(function(): void)|*}
+ */
+function debounce(fn, delay) {
+  let timer = null;
+  return function () {
+    const context = this,
+      args = arguments;
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      fn.apply(context, args);
+    }, delay);
+  };
+}
+
 function decreaseFontStep(selector, innerSelector, defaultFontSize) {
   let changed = false;
   $$(selector).forEach(el => {
