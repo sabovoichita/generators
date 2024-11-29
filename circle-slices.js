@@ -114,6 +114,9 @@ function createObjects(phrases) {
 }
 
 function createSlices(circle, phrases, width = 800, innerWidth = 250) {
+  if (typeof circle === "string") {
+    circle = $(circle);
+  }
   circle.style.width = `${width}px`;
   circle.style.height = `${width}px`;
   circle.style.setProperty("--line-width", `${(width - innerWidth) / 2}px`);
@@ -122,6 +125,7 @@ function createSlices(circle, phrases, width = 800, innerWidth = 250) {
   const objects = createObjects(phrases);
   circle.innerHTML = objects.map(({ line }) => line).join("");
   circle.innerHTML += objects.map(({ text }) => text).join("");
+  return circle;
 }
 
 function rotateMainCircle(degrees) {
@@ -149,7 +153,13 @@ function initEvents() {
   });
 }
 
-function createMiddleGrid(width) {
+function createMiddleGrid(circle, width) {
+  if (typeof circle === "string") {
+    circle = $(circle);
+  }
+  circle.style.width = `${width}px`;
+  circle.style.height = `${width}px`;
+
   let centerText = `
 Viața de rugăciune activă
 Spirit de slujitor
@@ -161,32 +171,30 @@ Exercitarea credinței
     .map(line => line.trim())
     .filter(line => line.length > 0);
 
-  const circle = $("#center");
-  circle.style.width = `${width}px`;
-  circle.style.height = `${width}px`;
   circle.innerHTML = `<h2>Disciplina</h2><div class="grid"></div>`;
   $(".grid", circle).innerHTML += centerText.map(text => `<div class="center-text">${text}</div>`).join("");
   circle.innerHTML += `<h2>Spirituală</h2>`;
+  return circle;
 }
 
 function start() {
-  const groups = $("#groups");
   const groupSize = parseInt($("#groupSize").value) || 1100;
   const slicesSize = parseInt($("#slicesSize").value) || 850;
   const centerSize = parseInt($("#centerSize").value) || 250;
 
-  createSlices(groups, titles, groupSize, slicesSize);
+  const groups = createSlices("#groups", titles, groupSize, slicesSize);
   groups.innerHTML += `<div id="slices" class="circle"></div>`;
 
-  const slices = $("#slices");
-  createSlices(slices, phrases, slicesSize, centerSize);
+  const slices = createSlices("#slices", phrases, slicesSize, centerSize);
   slices.innerHTML += `<div id="center" class="circle"></div>`;
 
-  createMiddleGrid(centerSize);
+  createMiddleGrid("#center", centerSize);
+  // $("#center").style.width = `${centerSize}px`;
+  // $("#center").style.height = `${centerSize}px`;
 
   //wait until animation is done then decrease font
   setTimeout(() => {
-    decreaseFont("#slices .phrase-inner", "", 16);
+    decreaseFont("#slices .phrase-inner", "", 26);
   }, 1000);
 }
 
