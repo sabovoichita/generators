@@ -12,19 +12,6 @@
 
       <div id="settings">
         <div class="form-field">
-          <label for="groupSize">Group size</label>
-          <input type="number" id="groupSize" name="groupSize" required value="1100" min="100" max="2000" />
-        </div>
-        <div class="form-field">
-          <label for="slicesSize">Slices size</label>
-          <input type="number" id="slicesSize" name="slicesSize" required value="850" min="100" max="2000" />
-        </div>
-        <div class="form-field">
-          <label for="centerSize">Center size</label>
-          <input type="number" id="centerSize" name="centerSize" required value="250" min="10" max="500" />
-        </div>
-
-        <div class="form-field">
           <label for="rotate">Rotate</label>
           <input type="range" value="0" required min="0" max="360" step="1" id="rotate" name="rotate" />
           <input
@@ -41,6 +28,23 @@
             <span>&deg;</span>
           </label>
         </div>
+
+        <details>
+          <summary>Settings</summary>
+
+          <div class="form-field">
+            <label for="groupSize">Group size</label>
+            <input type="number" id="groupSize" name="groupSize" required value="1100" min="100" max="2000" />
+          </div>
+          <div class="form-field">
+            <label for="slicesSize">Slices size</label>
+            <input type="number" id="slicesSize" name="slicesSize" required value="950" min="100" max="2000" />
+          </div>
+          <div class="form-field">
+            <label for="centerSize">Center size</label>
+            <input type="number" id="centerSize" name="centerSize" required value="250" min="10" max="500" />
+          </div>
+        </details>
       </div>
     </section>
     <script src="utilities.js"></script>

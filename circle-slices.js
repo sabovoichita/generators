@@ -105,8 +105,8 @@ function createObjects(phrases) {
     const textAngle = angle - elementAngle / 2 + odd * Math.round(radius / 2);
 
     return {
-      line: `<div class="slice-line" style="--angle: ${lineAngle}deg; --color: ${color}"></div>`,
-      text: `<div class="slice-text" style="--angle: ${textAngle}deg; --color: ${color}">
+      line: `<div data-index="${i + 1}" class="slice-line" style="--angle: ${lineAngle}deg; --color: ${color}"></div>`,
+      text: `<div data-index="${i + 1}" class="slice-text" style="--angle: ${textAngle}deg; --color: ${color}">
           <div class="phrase-inner">${text}</div>
         </div>`
     };
@@ -130,23 +130,34 @@ function createSlices(circle, phrases, width = 800, innerWidth = 250) {
 
 function rotateMainCircle(degrees) {
   $("#groups").style.transform = `rotate(${degrees}deg)`;
-  $("#center").style.transform = `rotate(-${degrees}deg)`;
+  $("#center").style.transform = `rotate(${degrees * -1}deg)`;
 }
 
 function initEvents() {
   $("#rotate").addEventListener("input", event => {
     const value = event.target.value;
-    rotateMainCircle(value);
+    rotateMainCircle(-value);
     $("#rotateDegrees").value = value;
   });
 
   $("#rotateDegrees").addEventListener("input", event => {
     const value = event.target.value;
-    rotateMainCircle(value);
+    rotateMainCircle(-value);
     $("#rotate").value = value;
   });
 
-  ["groupSize", "slicesSize", "centerSize"].forEach(id => {
+  $("#groups").addEventListener("click", event => {
+    const target = event.target;
+    if (target.closest(".phrase-inner")) {
+      const slice = target.closest(".slice-text");
+      const angle = parseFloat(slice.style.getPropertyValue("--angle").replace("deg", ""));
+      rotateMainCircle(-angle);
+      $("#rotate").value = angle;
+      $("#rotateDegrees").value = angle;
+    }
+  });
+
+  [("groupSize", "slicesSize", "centerSize")].forEach(id => {
     $(`#${id}`).addEventListener("change", () => {
       start();
     });
@@ -201,3 +212,7 @@ function start() {
 initEvents();
 
 start();
+
+// TODO check this changes
+//  - color slices with different colors
+//  - add bigger border to groups
