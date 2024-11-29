@@ -12,6 +12,18 @@
 
       <div id="settings">
         <div class="form-field">
+          <label for="groupSize">Group circle size</label>
+          <input type="number" id="groupSize" name="groupSize" required value="1100" min="100" max="2000" />
+        </div>
+        <div class="form-field">
+          <label for="slicesSize">Slices circle size</label>
+          <input type="number" id="slicesSize" name="slicesSize" required value="850" min="100" max="2000" />
+        </div>
+        <div class="form-field">
+          <label for="centerSize">Center circle size</label>
+          <input type="number" id="centerSize" name="centerSize" required value="250" min="10" max="500" />
+        </div>
+        <div class="form-field">
           <label for="rotate">Rotate</label>
           <input
             style="width: 360px"
@@ -34,7 +46,7 @@
             max="360"
             value="0"
           />
-          <label for="rotateDegrees">
+          <label for="rotateDegrees" style="min-width: auto">
             <span>&deg;</span>
           </label>
         </div>
