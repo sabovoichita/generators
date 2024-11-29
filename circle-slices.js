@@ -8,35 +8,35 @@ Creativitate și inventivitate
 Luarea deciziilor
 
 #2 Daruri de pastor-învățător
-Consiliind
-Pregătind și conducând închinarea
-Făcând ucenici
-Predicând
+Consilierea
+Pregatirea și conducerea închinării
+Facerea de ucenici
+Predicarea
 Zidind unitatea trupului
 
 #3 Orientat spre creștere
-Capabil pentru viziune
-Adaptându-se la creștere
-Deschis la creștere
-Motivații personale
+Un spirit vizionar
+Adaptabil pentru creștere
+Generator al creșterii
+Motivat personal
 
 #4 Penetrare în societate
-Stil flexibil
-Activitate evanghelică în/în afara Bisericii
-Prezență în Biserică
-Răspunde nevoilor Comunității
+Stil de conducere flexibil
+Activitate evanghelistică în Biserică și în afara ei
+Prezent permanent în Biserică
+Găsește soluții pentru nevoile Comunității
 
 #5 Abilitățile conducerii
-Autoritate și influență
+Autoritate, competență și influență
 Dezvoltarea conducerii Bisericii
-Motivarea Membrilor
-Utilizarea darurilor
-Formând o lucrare care se menține
+Motivarea membrilor
+Utilizarea tuturor darurilor spirituale
+Viziune pe termen mediu și lung
 
 #6 Abilități administrative
-Primind/oferind informații și raport
+Primind și oferind informații și raport
 Administrarea timpului
-Planificarea obiectivelor. Adaptarea / corectarea lor
+Planificarea obiectivelor. Adaptarea și îmbunătățirea lor.
 Organizarea structurilor administrative
 
 #7 Cunoștințe teologice / tehnice
@@ -48,7 +48,7 @@ Principiile Creșterii Bisericilor
 
 #8 Abilități interpersonale și de comunicare
 Ascultarea
-Interacțiuni
+Interacțiunea
 Menținerea relațiilor
 Probleme de construcții
 Rezolvarea conflictelor
