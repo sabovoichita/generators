@@ -113,13 +113,14 @@ function createObjects(phrases) {
   });
 }
 
-function createSlices(circle, phrases, width = 800, innerWidth = 250) {
+function createSlices(circle, phrases, width = 800, innerWidth = 250, lineWidth) {
   if (typeof circle === "string") {
     circle = $(circle);
   }
   circle.style.width = `${width}px`;
   circle.style.height = `${width}px`;
-  circle.style.setProperty("--line-width", `${(width - innerWidth) / 2}px`);
+  circle.style.setProperty("--line-width", `${lineWidth || (width - innerWidth) / 2}px`);
+  circle.style.setProperty("--text-width", `${(width - innerWidth) / 2}px`);
   circle.style.setProperty("--padding-start", `${innerWidth}px`);
 
   const objects = createObjects(phrases);
@@ -193,7 +194,7 @@ function start() {
   const slicesSize = parseInt($("#slicesSize").value) || 850;
   const centerSize = parseInt($("#centerSize").value) || 250;
 
-  const groups = createSlices("#groups", titles, groupSize, slicesSize);
+  const groups = createSlices("#groups", titles, groupSize, slicesSize, (groupSize - centerSize) / 2);
   groups.innerHTML += `<div id="slices" class="circle"></div>`;
 
   const slices = createSlices("#slices", phrases, slicesSize, centerSize);
@@ -215,4 +216,3 @@ start();
 
 // TODO check this changes
 //  - color slices with different colors
-//  - add bigger border to groups
