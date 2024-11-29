@@ -133,6 +133,7 @@ function createSlices(circle, phrases, width = 800, innerWidth = 250) {
 function rotateMainCircle(degrees) {
   $("#groups").style.transform = `rotate(${degrees}deg)`;
   $("#center").style.transform = `rotate(-${degrees}deg)`;
+<<<<<<< HEAD
 }
 
 function initEvents() {
@@ -149,6 +150,29 @@ function initEvents() {
   });
 }
 
+=======
+}
+
+function initEvents() {
+  $("#rotate").addEventListener("input", event => {
+    const value = event.target.value;
+    rotateMainCircle(value);
+    $("#rotateDegrees").value = value;
+  });
+
+  $("#rotateDegrees").addEventListener("input", event => {
+    const value = event.target.value;
+    rotateMainCircle(value);
+    $("#rotate").value = value;
+  });
+
+  //wait until animation is done then decrease font
+  setTimeout(() => {
+    decreaseFont("#slices .phrase-inner", "", 16);
+  }, 2000);
+}
+
+>>>>>>> 945a29689b1f84f5e6e5a1b5a214eb73915a67f7
 const groups = $("#groups");
 createSlices(groups, titles, 1100, 850);
 groups.innerHTML += `<div id="slices" class="circle"></div>`;
