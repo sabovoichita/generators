@@ -140,11 +140,7 @@ body {
   grid-template-columns: 1fr 1fr;
 }
 .grid > div {
-<<<<<<< HEAD
   padding: 10px;
-=======
-  padding: 5px;
->>>>>>> 945a29689b1f84f5e6e5a1b5a214eb73915a67f7
   display: flex;
   align-items: center;
 }
@@ -158,12 +154,6 @@ body {
 .grid div:nth-child(2) {
   border-bottom: 2px solid #333333;
 }
-<<<<<<< HEAD
-=======
-.no-transition {
-  transition: none !important;
-}
->>>>>>> 945a29689b1f84f5e6e5a1b5a214eb73915a67f7
 
 @media print {
   #settings {
