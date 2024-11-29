@@ -90,7 +90,7 @@ phrases = phrases
     text: line
   }));
 
-function createObjects(phrases) {
+function createObjects(phrases, color) {
   const length = phrases.reduce((acc, item) => acc + (item.children || [1]).length, 0);
   const radius = 360 / length;
   const odd = length % 2 === 1 ? 0 : 1;
@@ -100,20 +100,22 @@ function createObjects(phrases) {
     index += slices;
     const elementAngle = Math.round(slices * radius);
     const angle = Math.round(index * radius - radius / 2);
-    const color = `hsl(${Math.round(index * radius)}, 100%, 50%)`;
+    const lineColor = color || `hsl(${Math.round(index * radius)}, 100%, 50%)`;
     const lineAngle = angle + odd * Math.round(radius / 2);
     const textAngle = angle - elementAngle / 2 + odd * Math.round(radius / 2);
 
     return {
-      line: `<div data-index="${i + 1}" class="slice-line" style="--angle: ${lineAngle}deg; --color: ${color}"></div>`,
-      text: `<div data-index="${i + 1}" class="slice-text" style="--angle: ${textAngle}deg; --color: ${color}">
+      line: `<div data-index="${
+        i + 1
+      }" class="slice-line" style="--angle: ${lineAngle}deg; --color: ${lineColor}"></div>`,
+      text: `<div data-index="${i + 1}" class="slice-text" style="--angle: ${textAngle}deg;">
           <div class="phrase-inner">${text}</div>
         </div>`
     };
   });
 }
 
-function createSlices(circle, phrases, width = 800, innerWidth = 250, lineWidth) {
+function createSlices(circle, phrases, width = 800, innerWidth = 250, lineWidth, color) {
   if (typeof circle === "string") {
     circle = $(circle);
   }
@@ -123,7 +125,7 @@ function createSlices(circle, phrases, width = 800, innerWidth = 250, lineWidth)
   circle.style.setProperty("--text-width", `${(width - innerWidth) / 2}px`);
   circle.style.setProperty("--padding-start", `${innerWidth}px`);
 
-  const objects = createObjects(phrases);
+  const objects = createObjects(phrases, color);
   circle.innerHTML = objects.map(({ line }) => line).join("");
   circle.innerHTML += objects.map(({ text }) => text).join("");
   return circle;
