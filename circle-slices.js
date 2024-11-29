@@ -1,8 +1,6 @@
 // TODO check this examples:
 //   https://stackoverflow.com/questions/10028182/how-to-make-a-pie-chart-in-css
-function $(selector, parent) {
-  return (parent || document).querySelector(selector);
-}
+
 let phrases = `
 #1 Darul de a rezolva probleme
 Discernământ spiritual interior
@@ -92,10 +90,6 @@ phrases = phrases
     text: line
   }));
 
-function $(selector, parent) {
-  return (parent || document).querySelector(selector);
-}
-
 function createObjects(phrases) {
   const length = phrases.reduce((acc, item) => acc + (item.children || [1]).length, 0);
   const radius = 360 / length;
@@ -147,6 +141,11 @@ function initEvents() {
     rotateMainCircle(value);
     $("#rotate").value = value;
   });
+
+  //wait until animation is done then decrease font
+  setTimeout(() => {
+    decreaseFont("#slices .phrase-inner", "", 16);
+  }, 2000);
 }
 
 const groups = $("#groups");
