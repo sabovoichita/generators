@@ -129,18 +129,19 @@ body {
   align-content: center;
 }
 #center h2 {
-  margin: 0 0 5px 0;
-  font-size: 17px;
+  margin: 0;
+  font-size: 20px;
+  font-variant-caps: small-caps;
 }
 #center > .grid {
-  margin: 0 30px;
+  margin: 10px 30px;
 }
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 .grid > div {
-  padding: 10px;
+  padding: 5px;
   display: flex;
   align-items: center;
 }
@@ -153,6 +154,10 @@ body {
 .grid div:nth-child(1),
 .grid div:nth-child(2) {
   border-bottom: 2px solid #333333;
+}
+
+.no-transition {
+  transition: none !important;
 }
 
 @media print {

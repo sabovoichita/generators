@@ -99,7 +99,7 @@ function createObjects(phrases) {
     const slices = children.length || 1;
     index += slices;
     const elementAngle = Math.round(slices * radius);
-    const angle = Math.round(index * radius);
+    const angle = Math.round(index * radius - radius / 2);
     const color = `hsl(${Math.round(index * radius)}, 100%, 50%)`;
     const lineAngle = angle + odd * Math.round(radius / 2);
     const textAngle = angle - elementAngle / 2 + odd * Math.round(radius / 2);
@@ -156,25 +156,28 @@ const slices = $("#slices");
 createSlices(slices, phrases, 850, 250);
 slices.innerHTML += `<div id="center" class="circle"></div>`;
 
-const center = $("#center");
-center.style.width = "250px";
-center.style.height = "250px";
-
-let centerText = `
+function createMiddleGrid() {
+  let centerText = `
 Viața de rugăciune activă
 Spirit de slujitor
 Practici etice și morale
 Exercitarea credinței
 `;
-centerText = centerText
-  .split("\n")
-  .map(line => line.trim())
-  .filter(line => line.length > 0);
+  centerText = centerText
+    .split("\n")
+    .map(line => line.trim())
+    .filter(line => line.length > 0);
 
-center.innerHTML = `<h2>Disciplina spirituală</h2><div class="grid"></div>`;
-$(".grid", center).innerHTML += centerText.map(text => `<div class="center-text">${text}</div>`).join("");
+  const center = $("#center");
+  center.style.width = "250px";
+  center.style.height = "250px";
 
-center.innerHTML += `<h2>&nbsp;</h2>`;
+  center.innerHTML = `<h2>Disciplina</h2><div class="grid"></div>`;
+  $(".grid", center).innerHTML += centerText.map(text => `<div class="center-text">${text}</div>`).join("");
+  center.innerHTML += `<h2>Spirituală</h2>`;
+}
+
+createMiddleGrid();
 
 // $("#slices .circle").innerHTML = `<div id="dot" class="circle"></div>`;
 // const dot = $("#dot");
